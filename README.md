@@ -1,6 +1,6 @@
 # Sivert Programming Language
-## A Simple programming language build using the LLVM compilation tools
-
+ A Simple programming language build using the LLVM compilation tools
+--------------------------
 > [!IMPORTANT]
 > This Language is in experimental development stage
 
