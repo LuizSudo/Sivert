@@ -2,8 +2,8 @@
 
 #include "logic/Scope.hpp"
 #include "exceptions/SyntaxErrorException.hpp"
-#include "runtime/FooLexer.h"
-#include "runtime/FooParserBaseVisitor.h"
+#include "lexer/SivertLexer.h"
+#include "parser/SivertParserBaseListener.h"
 
 #include "logic/Helper.hpp"
 

@@ -17,4 +17,4 @@ public:
 
     llvm::Value *getVariable(const std::string &name);
 };
-} // namespace FooLang
+}

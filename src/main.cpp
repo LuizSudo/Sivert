@@ -1,4 +1,5 @@
 #include "CLIManager.hpp"
+#include "Visitor.hpp"
 #include "jit.hpp"
 #include "ObjectEmitter.hpp"
 #include "grammar/Visitor.hpp"
@@ -48,8 +49,8 @@ int main(int argc, char **argv)
     llvm::InitializeAllTargetMCs();
     llvm::InitializeAllAsmParsers();
     llvm::InitializeAllAsmPrinters();
-
-    FooLang::Visitor visitor(argv[1]);
+    
+    SivertLang::Visitor visitor(argv[1]);
     visitor.start();
 
     if (cli.hasOption("--print-llvm"))
