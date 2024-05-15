@@ -6,7 +6,7 @@ find_package(LLVM 14 REQUIRED CONFIG)
 message(STATUS "Found LLVM ${LLVM_PACKAGE_VERSION}")
 message(STATUS "Using LLVMConfig.cmake in: ${LLVM_DIR}")
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(${LLVM_INCLUDE_DIRS})
@@ -24,15 +24,15 @@ if(NOT DEFINED ANTLR4_TAG)
   set(ANTLR4_TAG master)
 endif()
 
-if(${CMAKE_GENERATOR} MATCHES "Visual Studio.*")
+if(${CMAKE_GENERATOR} MATCHES "Visual Studio.*") # Windows Build
   set(ANTLR4_OUTPUT_DIR ${ANTLR4_ROOT}/runtime/Cpp/dist/$(Configuration))
-elseif(${CMAKE_GENERATOR} MATCHES "Xcode.*")
+elseif(${CMAKE_GENERATOR} MATCHES "Xcode.*") # MacOS build
   set(ANTLR4_OUTPUT_DIR ${ANTLR4_ROOT}/runtime/Cpp/dist/$(CONFIGURATION))
 else()
   set(ANTLR4_OUTPUT_DIR ${ANTLR4_ROOT}/runtime/Cpp/dist)
 endif()
 
-if(MSVC)
+if(MSVC) # Visual C++ Compiler settings
   set(ANTLR4_STATIC_LIBRARIES
       ${ANTLR4_OUTPUT_DIR}/antlr4-runtime-static.lib)
   set(ANTLR4_SHARED_LIBRARIES
